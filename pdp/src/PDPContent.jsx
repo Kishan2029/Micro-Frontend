@@ -6,6 +6,7 @@ import placeAddToCart from "addtocart/placeAddToCart";
 
 export default function PDPContent() {
   const { id } = useParams();
+  console.log("id", id);
 
   const [product, setProduct] = useState(null);
 

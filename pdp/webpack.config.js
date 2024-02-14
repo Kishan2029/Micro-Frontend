@@ -50,7 +50,7 @@ module.exports = (_, argv) => ({
         addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
       exposes: {
-
+        "./PDPContent": "./src/PDPContent.jsx",
       },
       shared: {
         ...deps,
