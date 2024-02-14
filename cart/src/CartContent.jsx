@@ -7,8 +7,17 @@ export default function CartContent() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    cart.subscribe((value) => setItems(value?.cartItems ?? []));
+    console.log("cart.value?.cartItems", cart.value?.cartItems);
+    setItems(cart.value?.cartItems);
+    cart.subscribe((value) => {
+      console.log("value", value);
+      setItems(value?.cartItems ?? []);
+    });
   }, []);
+
+  useEffect(() => {
+    console.log("items", items);
+  }, [items]);
 
   return (
     <>
@@ -30,7 +39,7 @@ export default function CartContent() {
           {currency.format(items.reduce((a, v) => a + v.quantity * v.price, 0))}
         </div>
       </div>
-      {items.length > 0 && (
+      {
         <div className="flex mb-10">
           <div className="flex-grow">
             <button
@@ -50,7 +59,7 @@ export default function CartContent() {
             </button>
           </div>
         </div>
-      )}
+      }
     </>
   );
 }

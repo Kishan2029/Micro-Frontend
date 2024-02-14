@@ -8,6 +8,7 @@ export default function MiniCart() {
   const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
+    console.log(" mini cart.value?.cartItems", cart.value?.cartItems);
     setItems(cart.value?.cartItems);
     cart.subscribe((c) => {
       setItems(c?.cartItems);
@@ -15,7 +16,7 @@ export default function MiniCart() {
   }, []);
 
   if (!items) return null;
-  console.log("showCart", showCart);
+
   return (
     <>
       <span onClick={() => setShowCart(!showCart)} id="showcart_span">
@@ -29,7 +30,7 @@ export default function MiniCart() {
             style={{
               width: 300,
               top: "2rem",
-              // left: 250,
+              left: -250,
             }}
           >
             <div
