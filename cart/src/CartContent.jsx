@@ -7,17 +7,13 @@ export default function CartContent() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    console.log("cart.value?.cartItems", cart.value?.cartItems);
     setItems(cart.value?.cartItems);
     cart.subscribe((value) => {
-      console.log("value", value);
       setItems(value?.cartItems ?? []);
     });
   }, []);
 
-  useEffect(() => {
-    console.log("items", items);
-  }, [items]);
+  useEffect(() => {}, [items]);
 
   return (
     <>
