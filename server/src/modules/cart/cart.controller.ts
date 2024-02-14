@@ -36,6 +36,9 @@ export class CartController {
   @Get()
   @UseGuards(JwtAuthGuard)
   async index(@Request() req): Promise<Cart> {
+    console.log('this.cart', this.carts);
+    console.log('req.user.userId', req.user.userId);
+
     return this.carts[req.user.userId] ?? { cartItems: [] };
   }
 

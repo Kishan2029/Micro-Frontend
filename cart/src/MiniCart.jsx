@@ -9,13 +9,13 @@ export default function MiniCart() {
 
   useEffect(() => {
     setItems(cart.value?.cartItems);
-    return cart.subscribe((c) => {
+    cart.subscribe((c) => {
       setItems(c?.cartItems);
     });
   }, []);
 
   if (!items) return null;
-
+  console.log("showCart", showCart);
   return (
     <>
       <span onClick={() => setShowCart(!showCart)} id="showcart_span">
@@ -29,7 +29,7 @@ export default function MiniCart() {
             style={{
               width: 300,
               top: "2rem",
-              left: -250,
+              // left: 250,
             }}
           >
             <div

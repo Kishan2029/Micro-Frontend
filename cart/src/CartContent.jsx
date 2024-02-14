@@ -6,10 +6,9 @@ import { currency } from "home/products";
 export default function CartContent() {
   const [items, setItems] = useState([]);
 
-  useEffect(
-    () => cart.subscribe((value) => setItems(value?.cartItems ?? [])),
-    []
-  );
+  useEffect(() => {
+    cart.subscribe((value) => setItems(value?.cartItems ?? []));
+  }, []);
 
   return (
     <>

@@ -15,6 +15,7 @@ export const getCart = () =>
     })
         .then((res) => res.json())
         .then((res) => {
+            console.log("res", res)
             cart.next(res);
             return res;
         });
@@ -68,7 +69,7 @@ export function useLoggedIn() {
     const [loggedIn, setLoggedIn] = useState(!!jwt.value);
     useEffect(() => {
         setLoggedIn(!!jwt.value);
-        return jwt.subscribe((c) => {
+        jwt.subscribe((c) => {
             setLoggedIn(!!jwt.value);
         });
     }, []);
