@@ -16,7 +16,7 @@ Trying authorized routes without a JWT will result in a 401.
 
 ```
 $ curl http://localhost:8080/authorized
-$ # result -> {"statusCode":401,"message":"Unauthorized"}                                 
+$ # result -> {"statusCode":401,"message":"Unauthorized"}
 ```
 
 Use the `/auth/login` route to login.
@@ -34,3 +34,5 @@ $ # GET /profile using access_token returned from previous step as bearer code
 $ curl http://localhost:8080/authorized -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vybm..."
 $ # result -> {"userId":2}
 ```
+
+curl http://localhost:8080/cart -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwic3ViIjoyLCJpYXQiOjE3MDc4MzY0NDMsImV4cCI6MTcwNzkyMjg0M30.Y-7AYgwvRXUyUHbkxWD30qu8ZnpXrDbWT1dYJhAM3sc"
